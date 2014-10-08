@@ -10,7 +10,7 @@ function [ optW ] = newtonMethod(X_train,y,w_old,lambda,flag)
    crossEntropyAsIteration = zeros(1,51);
    
    for i = 0:50
-       optW = w_old-(gamma.^j)*(hessian\firstDer);
+       optW = w_old-(gamma.^j)*(firstDer\hessian);
        crossEntropy_new = objFunction(X_train,y,optW,lambda);
        crossEntropyAsIteration(i+1) = crossEntropy_new;
        %if((abs(crossEntropy_new-crossEntropy)/crossEntropy)<epsilon) 
